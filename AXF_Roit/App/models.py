@@ -4,30 +4,24 @@ from App.ext import db
 class Home(db.Model):
     id = db.Column(db.Integer,primary_key=True,autoincrement=True)
     img = db.Column(db.String(200))
-    name = db.Column(db.Integer)
+    name = db.Column(db.String(32))
     trackid = db.Column(db.Integer,default=1)
 
-    class Meta:
-        abstract = True
+
+    __abstract__ = True
 
 class HomeWheel(Home):
-    pass
+
+    __tablename__ = 'axf_wheel'
+
+
 class HomeNav(Home):
-    pass
+    __tablename__ = 'axf_nav'
+
+
 class HomeMustBuy(Home):
-    pass
+    __tablename__ = 'axf_mustbuy'
+
+
 class HomeShop(Home):
-    pass
-class HomeMainShow(Home):
-    pass
-
-
-
-class Market(db.Model):
-    pass
-
-class Mine(db.Model):
-    pass
-
-class Cart(db.Model):
-    pass
+    __tablename__ = 'axf_shop'
